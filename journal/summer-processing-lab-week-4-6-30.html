@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Summer Processing Lab: Week 4 (6/30) | Logan Burns</title>
+<meta name="description" content="Logan Burns, electrical engineering undergraduate at the University of Florida. Research, projects, and e-portfolio journal.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%2317492e'/><rect x='4' y='4' width='8' height='8' fill='none' stroke='%23c47a3c' stroke-width='1.5'/><circle cx='8' cy='8' r='1.5' fill='%23c47a3c'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">LOGAN<span class="tick">_</span>BURNS</a>
+    <nav class="site-nav">
+      <a href="../index.html">HOME</a>
+      <a href="../research.html">RESEARCH</a>
+      <a href="../coursework.html">COURSEWORK</a>
+      <a href="../journal.html" aria-current="page">JOURNAL</a>
+      <a href="../resume.html">RESUME</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+<div class="when">JUN 30, 2025</div>
+<h1>Summer Processing Lab: Week 4 (6/30)</h1>
+<p>This week marks the completion of the etching process for the first layer of our MOSCAPs. We calculated our etch times based on observed results from our peers, experimental data collected online, and the average thickness of our SiO2 layers across dry and wet oxide growth groups.</p>
+<pre class="calc">Wet Etch to remove SiO2 on areas devoid of features:
+
+Parameters:
+Wet samples SiO2 thickness: 64.59 nm average.
+Dry samples SiO2 thickness: 97.01 nm average.
+Wet etch agent: UN2817 Ammonium Hydrogen Difluoride, Solution, 8 (6.1).
+BOE Thermally grown SiO2 Etch Rate: ~800 Å/min @ 25 °C -&gt; 80 nm/min.
+
+Time_w = (64.59 nm)/(80 nm/min) = 0.807375 min * 60 sec/min ~ 48 sec
+Time_d = (97.01 nm)/(80 nm/min) = 1.212625 min * 60 sec/min ~ 73 sec</pre>
+<pre class="calc">Selective Si dry etch:
+
+Parameters:
+Plasma Mixture: 0.300 SCCM SF6/0.300 SCCM Ar
+Pressure: 20 mTorr w/ turbo
+Forward power: 250 Watts
+Reflected power: 4.6 Watts
+Etch rate SiO2: ~102 nm/min from peer results
+
+Time = (200 nm)/(102 nm/min) = 1.96078431 min * 60 sec/min ~ 118 sec.</pre>
+<figure><img src="../assets/img/lab4-1.png" alt="Summer Processing Lab: Week 4 (6/30)" loading="lazy"></figure>
+<figure><img src="../assets/img/lab4-2.png" alt="Summer Processing Lab: Week 4 (6/30)" loading="lazy"></figure>
+<p>After the dry etch, we used the stylus profilometer to measure the Si etch depth. We observed significantly lower Si etch depth than expected, ~75nm rather than the planned 200nm, which indicates that we etched too many wafers at a time, reducing power density. We did not account for the power density reduction due to multiple wafers. This will be a consideration going forward.</p>
+</article>
+<div class="post-nav"><a href="../journal.html">&larr; ALL JOURNAL ENTRIES</a></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>LOGAN BURNS · ELECTRICAL ENGINEERING · UNIVERSITY OF FLORIDA</span>
+    <span>
+      <a href="mailto:lburns1@ufl.edu">lburns1@ufl.edu</a> ·
+      <a href="tel:+14077739448">(407) 773-9448</a> ·
+      <a href="https://github.com/LBurnsUF">GITHUB</a> ·
+      <a href="https://www.linkedin.com/in/logan-burns-0a8982321">LINKEDIN</a>
+    </span>
+  </div>
+</footer>
+</body>
+</html>

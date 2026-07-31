@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Summer Processing Lab: Week 3 (6/16) | Logan Burns</title>
+<meta name="description" content="Logan Burns, electrical engineering undergraduate at the University of Florida. Research, projects, and e-portfolio journal.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%2317492e'/><rect x='4' y='4' width='8' height='8' fill='none' stroke='%23c47a3c' stroke-width='1.5'/><circle cx='8' cy='8' r='1.5' fill='%23c47a3c'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">LOGAN<span class="tick">_</span>BURNS</a>
+    <nav class="site-nav">
+      <a href="../index.html">HOME</a>
+      <a href="../research.html">RESEARCH</a>
+      <a href="../coursework.html">COURSEWORK</a>
+      <a href="../journal.html" aria-current="page">JOURNAL</a>
+      <a href="../resume.html">RESUME</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<article class="post">
+<div class="when">JUN 16, 2025</div>
+<h1>Summer Processing Lab: Week 3 (6/16)</h1>
+<p>This week marks the completion of the initial mask exposure for our MOSCAP manufacturing process. We further calibrated our exposure time based on observed results, experimental data collected online, and the measured radiance of our lamp.</p>
+<pre class="calc">D = b * D0 * (1 + R_eff*e^(-αT)) | Levinson, Harry J. Principles of Lithography, 4th Ed.
+
+Parameters:
+60-80nm SiO2 ~ 70nm = 7 * 10^-8
+4000rpm for 60 sec with AV1512 -&gt; ~1.2 µm
+2 minute post bake | b = 0.9, slightly increases solubility change - "Principles of Lithography" (H. J. Levinson, SPIE Press)
+absorption (α): ~0.45
+D_0: 75 mJ/cm^2 based on experimental resolution falloff.
+
+Thompson, L. F., Willson, C. G., &amp; Bowden, M. J. (1994). Introduction to microlithography. American Chemical Society.</pre>
+<pre class="calc">Full Stack Reflectivity via Transfer Matrix Method:
+
+Reff = ((r_12 + r_23 * e^(4i * pi * n_2 * d/λ)/(1 + r_12 * r_23 * e^(4i * pi * n_2 * d/λ))^2
+
+n_1 = n_resist = 1.7
+n_2 = n_SiO₂ = 1.46
+n_3 = n_Si = |3.8 + 0.02i| ~ 3.80
+
+Fresnel reflection coefficients:
+r_12 = (n_1 - n_2)/(n_1 + n_2) = (1.7 - 1.46)/(1.7 + 1.46) = 0.07595
+r_23 = (n_2 - n_3)/(n_2 + n_3) = (1.46 - 3.80)/(1.46 + 3.80) = -0.44487
+
+Reff = ((0.07595 - 0.44487 * e^(4i * pi * 1.46 * 7 * 10^-8/400nm)/(1 - 0.07595 * 0.44487 * e^(4i * pi * 1.46 * 7 * 10^-8/400nm))^2
+     = (0.5198 + 0.0307i)/(1.0337 + 0.0023i))^2 = 0.2537
+
+D = 0.9 * 75 mJ/cm^2 * (1 + 0.2537*e^(-0.55 * 10^6 * 1.2 * 10^-6))
+D = 0.9 * 75 mJ/cm^2 * (1 + 0.2537*e^(-0.54))
+D = 0.9 * 75 * (1.13112518) = 76.35095
+
+t = 76.35095/E
+76.35095/9.1 = ~8.4 sec</pre>
+<p>We observed significant interference fringes under the microscope after exposure, which may indicate the following issues: insufficient contact, residual moisture due to insufficient drying, photoresist edge beading.</p>
+<figure><img src="../assets/img/lab3-fringes.jpg" alt="Summer Processing Lab: Week 3 (6/16)" loading="lazy"></figure>
+<p>Going forward, I would recommend an acetone swab along the outer edge before the post bake to remove excess photoresist in noncritical areas to improve exposure contact, to eliminate the risk of beading.</p>
+</article>
+<div class="post-nav"><a href="../journal.html">&larr; ALL JOURNAL ENTRIES</a></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>LOGAN BURNS · ELECTRICAL ENGINEERING · UNIVERSITY OF FLORIDA</span>
+    <span>
+      <a href="mailto:lburns1@ufl.edu">lburns1@ufl.edu</a> ·
+      <a href="tel:+14077739448">(407) 773-9448</a> ·
+      <a href="https://github.com/LBurnsUF">GITHUB</a> ·
+      <a href="https://www.linkedin.com/in/logan-burns-0a8982321">LINKEDIN</a>
+    </span>
+  </div>
+</footer>
+</body>
+</html>
