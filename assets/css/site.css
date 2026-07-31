@@ -101,10 +101,15 @@ nav.site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: va
 
 .hero-kicker {
   font-family: var(--mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
   color: var(--green);
   margin-bottom: 1rem;
+}
+
+@media (max-width: 760px) {
+  .hero-kicker { white-space: normal; }
 }
 
 .hero h1 {
@@ -159,7 +164,6 @@ nav.site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: va
   display: block;
   width: 100%;
   border: 1px solid var(--line-strong);
-  filter: grayscale(1) contrast(1.02);
 }
 
 .portrait::after {
