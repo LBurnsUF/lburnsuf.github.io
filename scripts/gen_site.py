@@ -326,7 +326,7 @@ INDEX_BODY = """
 
 <section class="block">
   <div class="sec-label">&sect;03 / RESEARCH INTERESTS</div>
-  <h2 class="sec-title">Currently orbiting.</h2>
+  <h2 class="sec-title">Interests.</h2>
   <div class="cards">
     <div class="card"><h3>Analog &amp; mixed-signal</h3><p>Amplifier and regulator design, loop stability, data converters.</p></div>
     <div class="card"><h3>Power electronics</h3><p>Regulation, protection, MOSFET switching, power integrity.</p></div>
