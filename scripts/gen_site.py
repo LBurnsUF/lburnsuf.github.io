@@ -296,7 +296,7 @@ INDEX_BODY = """
 <section class="block">
   <div class="sec-label">&sect;01 / ABOUT</div>
   <h2 class="sec-title">Critical thought, deliberative discussion.</h2>
-  <p style="max-width:44em; color:var(--ink-soft)">I value critical thought and deliberative discussion to solve problems, regardless of the area of focus. My interest in electrical engineering grew from taking apart computer hardware, an incurable curiosity about how devices work, and a learning environment that encouraged chasing that curiosity. These days it points at analog and mixed-signal circuits, power electronics, VLSI, and optical sensing.</p>
+  <p style="color:var(--ink-soft)">I value critical thought and deliberative discussion to solve problems, regardless of the area of focus. My interest in electrical engineering grew from taking apart computer hardware, an incurable curiosity about how devices work, and a learning environment that encouraged chasing that curiosity. These days it points at analog and mixed-signal circuits, power electronics, VLSI, and optical sensing.</p>
 </section>
 
 <section class="block">
@@ -450,10 +450,16 @@ COURSEWORK_BODY = """
     <ul><li>Fabricated MOS capacitors at the UF Nanoscale Research Facility: oxidation, photolithography, wet etch, and sputter deposition. Full build log in the <a href="journal.html">journal</a>.</li></ul></div>
   </div>
   <div class="entry">
-    <div class="when">2024 &ndash; 2025</div>
-    <div><h3>Solar Gators &amp; IEEE</h3>
+    <div class="when">2024 &ndash; PRESENT</div>
+    <div><h3>IEEE</h3>
     <div class="role">MEMBER</div>
     <ul><li>Student chapter membership and events.</li></ul></div>
+  </div>
+  <div class="entry">
+    <div class="when">2024 &ndash; 2025</div>
+    <div><h3>Solar Gators</h3>
+    <div class="role">MEMBER</div>
+    <ul><li>Solar-vehicle design team membership.</li></ul></div>
   </div>
 </section>
 """
