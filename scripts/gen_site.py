@@ -304,6 +304,7 @@ INDEX_BODY = """
   <h2 class="sec-title">Things I've built.</h2>
   <div class="cards">
     <div class="card">
+      <img src="assets/img/flir-thermal-rig.jpg" alt="FLIR thermal camera on a tripod imaging a Jetson robot platform, live thermal view on a laptop">
       <div class="meta">FOCUS LAB · SUBMITTED TO CORL 2026</div>
       <h3>EdgeTrain</h3>
       <p>Thermal-adaptive continual learning for robot-mounted edge GPUs. I built the thermal instrumentation: a calibrated FLIR imaging pipeline, a 150 W radiant-heat rig, and the DVFS characterization behind the paper's central claims.</p>
