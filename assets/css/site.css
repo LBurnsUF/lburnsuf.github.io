@@ -177,7 +177,7 @@ nav.site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: va
 
 /* ---------- sections ---------- */
 
-section.block { padding: 2.6rem 0; }
+section.block { padding: 1.6rem 0; }
 
 .sec-label {
   display: flex;
