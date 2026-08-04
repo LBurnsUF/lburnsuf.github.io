@@ -305,7 +305,7 @@ INDEX_BODY = """
   <div class="cards">
     <div class="card">
       <img src="assets/img/flir-thermal-rig.jpg" alt="FLIR thermal camera on a tripod imaging a Jetson robot platform, live thermal view on a laptop">
-      <div class="meta">FOCUS LAB · SUBMITTED TO CORL 2026</div>
+      <div class="meta">FOCUS LAB · MANUSCRIPT IN REVISION</div>
       <h3>EdgeTrain</h3>
       <p>Thermal-adaptive continual learning for robot-mounted edge GPUs. I built the thermal instrumentation: a calibrated FLIR imaging pipeline, a 150 W radiant-heat rig, and the DVFS characterization behind the paper's central claims.</p>
       <p style="margin-top:0.6rem"><a class="more" href="research.html">RESEARCH &rarr;</a></p>
@@ -348,7 +348,7 @@ RESEARCH_BODY = """
       <h3>Florida Optics and Computational Sensor (FOCUS) Lab</h3>
       <div class="role">UNDERGRADUATE RESEARCH ASSISTANT · PI: DR. SANJEEV KOPPAL · UF ECE</div>
       <ul>
-        <li><strong>EdgeTrain:</strong> co-authored a thermal-adaptive continual-learning controller for robot-mounted edge GPUs, submitted to CoRL 2026. Built the thermal instrumentation and evidence base: calibrated FLIR A6751sc imaging pipeline, 150 W radiant-heat stress rig, per-rail power telemetry, and DVFS characterization on a Jetson Orin NX.</li>
+        <li><strong>EdgeTrain:</strong> co-authored a thermal-adaptive continual-learning controller for robot-mounted edge GPUs; the manuscript is in revision for conference resubmission. Built the thermal instrumentation and evidence base: calibrated FLIR A6751sc imaging pipeline, 150 W radiant-heat stress rig, per-rail power telemetry, and DVFS characterization on a Jetson Orin NX.</li>
         <li><strong>Virtual thermal sensing:</strong> sole author of a system that predicts temperatures of off-die board components (VRM inductors, MOSFETs) from on-die telemetry alone, via thermal response mapping and lumped-capacitance model fitting; a real-time daemon needs no camera after a one-time calibration.</li>
       </ul>
     </div>
@@ -378,9 +378,9 @@ RESEARCH_BODY = """
 </section>
 
 <section class="block">
-  <div class="sec-label">&sect;02 / MANUSCRIPTS UNDER REVIEW</div>
+  <div class="sec-label">&sect;02 / MANUSCRIPTS</div>
   <h2 class="sec-title">Publications</h2>
-  <p class="pubcite">M. Keivanimehr, <strong>L. Burns</strong>, S. J. Koppal, &ldquo;EdgeTrain: Thermal-Adaptive Continual Learning for Energy-Constrained Mobile Robots,&rdquo; submitted to <em>Conference on Robot Learning (CoRL)</em>, 2026.</p>
+  <p class="pubcite">M. Keivanimehr, <strong>L. Burns</strong>, S. J. Koppal, &ldquo;EdgeTrain: Thermal-Adaptive Continual Learning for Energy-Constrained Mobile Robots,&rdquo; manuscript in revision for conference resubmission, 2026.</p>
 </section>
 """
 
@@ -417,13 +417,11 @@ COURSEWORK_BODY = """
       <tr><td>EEL4712C Digital Design</td><td class="grade">A</td></tr>
       <tr><td>EEE3308C Electronic Circuits 1</td><td class="grade">A</td></tr>
       <tr><td>EEL3112 Circuits 2</td><td class="grade">A</td></tr>
-      <tr><td>EEL3008 Physics of EE</td><td class="grade">B</td></tr>
       <tr><td>EGN4912 Research</td><td class="grade">S</td></tr>
     </table></div>
     <div class="term"><h3>SUMMER 2026</h3><table>
       <tr><td>EGN2020C Engineering Design</td><td class="grade">IP</td></tr>
       <tr><td>MAS3114 Computational Linear Algebra</td><td class="grade">IP</td></tr>
-      <tr><td>MUL2010 Experiencing Music</td><td class="grade">A</td></tr>
     </table></div>
     <div class="term"><h3>FALL 2026 · PLANNED</h3><table>
       <tr><td>EEE5320 Analog IC Design I</td><td class="grade">&ndash;</td></tr>
@@ -474,7 +472,7 @@ RESUME_BODY = """
     <div class="card">
       <div class="meta">FOR LABS, REUs, RESEARCH POSITIONS</div>
       <h3>Research resume</h3>
-      <p>Leads with research experience, the CoRL 2026 submission, and teaching.</p>
+      <p>Leads with research experience, manuscripts, and teaching.</p>
       <p style="margin-top:0.8rem"><a class="more" href="assets/doc/logan-burns-research.pdf">DOWNLOAD PDF &darr;</a></p>
     </div>
     <div class="card">
