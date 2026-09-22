@@ -212,55 +212,58 @@ h2.sec-title {
   gap: 1.2rem;
 }
 
-/* Horizontal rail: three cards visible, snap-scrolled. Scoped to Selected
-   Work; .cards stays a grid for Interests and the resume page. */
+/* Horizontal rail: three cards visible, chevrons flanking the track. Scoped to
+   Selected Work; .cards stays a grid for Interests and the resume page. */
 
-.rail-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.rail-nav { display: flex; gap: 0.4rem; }
-
-.rail-btn {
-  font: inherit;
-  font-family: var(--mono);
-  font-size: 0.95rem;
-  line-height: 1;
-  color: var(--ink-soft);
-  background: var(--paper-raised);
-  border: 1px solid var(--line-strong);
-  padding: 0.45rem 0.7rem;
-  cursor: pointer;
-  transition: color 0.15s, border-color 0.15s;
-}
-
-.rail-btn:hover:not(:disabled) { color: var(--copper); border-color: var(--copper); }
-.rail-btn:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
-.rail-btn:disabled { opacity: 0.3; cursor: default; }
+.rail-wrap { position: relative; }
 
 .cards--rail {
   display: flex;
   gap: 1.2rem;
   overflow-x: auto;
-  /* proximity, not mandatory: mandatory re-snaps to the nearest point after a
-     programmatic scrollBy and drags the arrows' step back to the start */
   scroll-snap-type: x proximity;
-  /* No scroll-behavior here: the JS passes behavior on each scrollBy, and a
-     CSS-level smooth can leave the rail unscrollable where the animation does
-     not run. */
   scrollbar-width: none;
   padding-bottom: 0.5rem;
 }
 
 .cards--rail::-webkit-scrollbar { display: none; }
 
+/* snap is suspended during a programmatic glide, otherwise the browser
+   re-snaps mid-tween and the slide stutters */
+.cards--rail.is-gliding { scroll-snap-type: none; }
+
 .cards--rail > .card {
   flex: 0 0 calc((100% - 2 * 1.2rem) / 3);
   scroll-snap-align: start;
+}
+
+.rail-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.6rem;
+  padding: 0;
+  color: var(--ink-soft);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, opacity 0.2s;
+}
+
+.rail-btn[data-rail-dir="-1"] { left: -1.05rem; }
+.rail-btn[data-rail-dir="1"]  { right: -1.05rem; }
+
+.rail-btn svg { width: 14px; height: 14px; display: block; }
+.rail-btn:hover:not(:disabled) { color: var(--copper); border-color: var(--copper); }
+.rail-btn:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+
+.rail-btn:disabled {
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 900px) {
@@ -269,6 +272,9 @@ h2.sec-title {
 
 @media (max-width: 600px) {
   .cards--rail > .card { flex-basis: 85%; }
+  /* no room to overhang, so sit them just inside the track */
+  .rail-btn[data-rail-dir="-1"] { left: 0.25rem; }
+  .rail-btn[data-rail-dir="1"]  { right: 0.25rem; }
 }
 
 .card {

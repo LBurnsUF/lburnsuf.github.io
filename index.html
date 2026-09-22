@@ -47,39 +47,37 @@
 
 <section class="block">
   <div class="sec-label">&sect;02 / SELECTED WORK</div>
-  <div class="rail-head">
-    <h2 class="sec-title">Things I've built.</h2>
-    <div class="rail-nav">
-      <button class="rail-btn" type="button" data-rail-dir="-1" aria-label="Scroll to previous projects">&larr;</button>
-      <button class="rail-btn" type="button" data-rail-dir="1" aria-label="Scroll to next projects">&rarr;</button>
-    </div>
-  </div>
-  <div class="cards cards--rail" tabindex="0" role="region" aria-label="Selected work">
-    <div class="card">
-      <img src="assets/img/vts-reconstruction.png" alt="Measured, predicted, and error thermal images of a Jetson board across cold start, transient, and steady state">
-      <div class="meta">FOCUS LAB &middot; SOLE AUTHOR</div>
-      <h3>Virtual Thermal Sensing</h3>
-      <p>Predicts the temperature of board components that carry no sensors, from on-die telemetry alone. One calibration against a thermal camera, then the camera leaves the loop. Eight spatial modes reconstruct the whole board to 0.41&nbsp;&deg;C mean error on configurations held out of the fit.</p>
-      <p style="margin-top:0.6rem"><a class="more" href="research.html">RESEARCH &rarr;</a></p>
-    </div>
-    <div class="card">
-      <img src="assets/img/flir-thermal-rig.jpg" alt="FLIR thermal camera on a tripod imaging a Jetson robot platform, live thermal view on a laptop">
-      <div class="meta">FOCUS LAB · MANUSCRIPT IN REVISION</div>
-      <h3>EdgeTrain</h3>
-      <p>Thermal-adaptive continual learning for robot-mounted edge GPUs. I built the thermal instrumentation: a calibrated FLIR imaging pipeline, a 150 W radiant-heat rig, and the DVFS characterization behind the paper's central claims.</p>
-      <p style="margin-top:0.6rem"><a class="more" href="research.html">RESEARCH &rarr;</a></p>
-    </div>
-    <div class="card">
-      <img src="assets/img/leak-detector-pcb.png" alt="SubjuGator 9 leak detector PCB render">
-      <div class="meta">MIL · SUBJUGATOR 9 AUV</div>
-      <h3>Leak Detector</h3>
-      <p>Water-ingress detection board for UF's autonomous submarine: LTspice comparator front end through Altium layout to fabrication release.</p>
-    </div>
-    <div class="card">
-      <img src="assets/img/synth-scope.png" alt="ASCII oscilloscope output from the AVR synthesizer">
-      <div class="meta">PERSONAL · BARE-METAL AVR</div>
-      <h3>Wavetable Synthesizer</h3>
-      <p>3-voice polyphonic synth on an ATxmega128A1U: ping-pong DMA audio, inline-assembly mixing, and a live serial oscilloscope. <a href="https://youtu.be/gx8KwXzQoUY">Demo video</a>.</p>
+  <h2 class="sec-title">Things I've built.</h2>
+  <div class="rail-wrap">
+    <button class="rail-btn" type="button" data-rail-dir="-1" aria-label="Previous projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <button class="rail-btn" type="button" data-rail-dir="1" aria-label="Next projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
+    <div class="cards cards--rail" tabindex="0" role="region" aria-label="Selected work">
+      <div class="card">
+        <img src="assets/img/vts-reconstruction.png" alt="Measured, predicted, and error thermal images of a Jetson board across cold start, transient, and steady state">
+        <div class="meta">FOCUS LAB &middot; SOLE AUTHOR</div>
+        <h3>Virtual Thermal Sensing</h3>
+        <p>Predicts the temperature of board components that carry no sensors, from on-die telemetry alone. One calibration against a thermal camera, then the camera leaves the loop. Eight spatial modes reconstruct the whole board to 0.41&nbsp;&deg;C mean error on configurations held out of the fit.</p>
+        <p style="margin-top:0.6rem"><a class="more" href="research.html">RESEARCH &rarr;</a></p>
+      </div>
+      <div class="card">
+        <img src="assets/img/flir-thermal-rig.jpg" alt="FLIR thermal camera on a tripod imaging a Jetson robot platform, live thermal view on a laptop">
+        <div class="meta">FOCUS LAB · MANUSCRIPT IN REVISION</div>
+        <h3>EdgeTrain</h3>
+        <p>Thermal-adaptive continual learning for robot-mounted edge GPUs. I built the thermal instrumentation: a calibrated FLIR imaging pipeline, a 150 W radiant-heat rig, and the DVFS characterization behind the paper's central claims.</p>
+        <p style="margin-top:0.6rem"><a class="more" href="research.html">RESEARCH &rarr;</a></p>
+      </div>
+      <div class="card">
+        <img src="assets/img/leak-detector-pcb.png" alt="SubjuGator 9 leak detector PCB render">
+        <div class="meta">MIL · SUBJUGATOR 9 AUV</div>
+        <h3>Leak Detector</h3>
+        <p>Water-ingress detection board for UF's autonomous submarine: LTspice comparator front end through Altium layout to fabrication release.</p>
+      </div>
+      <div class="card">
+        <img src="assets/img/synth-scope.png" alt="ASCII oscilloscope output from the AVR synthesizer">
+        <div class="meta">PERSONAL · BARE-METAL AVR</div>
+        <h3>Wavetable Synthesizer</h3>
+        <p>3-voice polyphonic synth on an ATxmega128A1U: ping-pong DMA audio, inline-assembly mixing, and a live serial oscilloscope. <a href="https://youtu.be/gx8KwXzQoUY">Demo video</a>.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -130,25 +128,37 @@
   }
 
   // Hand-rolled rather than scrollBy({behavior:"smooth"}), which silently does
-  // nothing in some environments and leaves the arrows dead.
+  // nothing in some environments and would leave the arrows dead.
   var anim = null;
+
   function glide(to) {
     var from = rail.scrollLeft;
     var max = rail.scrollWidth - rail.clientWidth;
     to = Math.max(0, Math.min(to, max));
+    if (to === from) return;
     if (anim) cancelAnimationFrame(anim);
+
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
       rail.scrollLeft = to;
       sync();
       return;
     }
-    var t0 = performance.now(), dur = 360;
+
+    rail.classList.add("is-gliding");
+    var t0 = performance.now(), dur = 420;
+
     (function frame(now) {
       var k = Math.min((now - t0) / dur, 1);
-      k = k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2;   // ease in-out
-      rail.scrollLeft = from + (to - from) * k;
-      if (k < 1) anim = requestAnimationFrame(frame);
-      else { anim = null; sync(); }
+      var e = 1 - Math.pow(1 - k, 3);          // ease-out cubic
+      rail.scrollLeft = from + (to - from) * e;
+      if (k < 1) {
+        anim = requestAnimationFrame(frame);
+      } else {
+        anim = null;
+        rail.scrollLeft = to;                  // land exactly, then re-arm snap
+        rail.classList.remove("is-gliding");
+        sync();
+      }
     })(t0);
   }
 
@@ -158,7 +168,7 @@
     });
   });
 
-  rail.addEventListener("scroll", sync, { passive: true });
+  rail.addEventListener("scroll", function () { if (!anim) sync(); }, { passive: true });
   window.addEventListener("resize", sync);
   sync();
 })();
